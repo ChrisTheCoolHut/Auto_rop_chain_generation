@@ -16,8 +16,6 @@ Generate a rop chain that calls
 execve("/bin/sh",NULL,NULL) for the
 given binary
 """
-
-
 def generate_standard_rop_chain(binary_path):
     context.binary = binary_path
     elf = ELF(binary_path)
@@ -91,8 +89,6 @@ on the stack, then we want to emulate and step through each piece of
 our ropchain and contrain each address or register to the expected 
 value
 """
-
-
 def do_64bit_rop_with_stepping(elf, rop, rop_chain, new_state):
     user_input = new_state.globals["user_input"]
     curr_rop = None
